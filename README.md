@@ -4,23 +4,18 @@ Stupid Simple Clojure Code Processor that will receive a Clojure String and exec
 
 Living dangerously!
 
-## Prerequisites
-
-You will need [Leiningen][] 2.0.0 or above installed.
-
-[leiningen]: https://github.com/technomancy/leiningen
-
 ## Running
 
 To start a web server for the application, run:
 
-    lein ring server
 And then:
-
-1.  POST to `/` a JSON with the field code and a string of what will run:
+1. Start up server using leiningen: `lein ring server`
+2. Set Env Var: `export HDFS_USER=job-processor`
+2. Run Docker Spark: `docker run -d -p 8080:8080 -p 7077:7077 singularities/spark:2.0 start-spark master`
+3. POST to `/` a JSON with the Clojure code:
 ``` JSON
 {
   "code":"(reduce * [3 2 1])"
 }
 ```
-2. Check result! `6`
+4. Check result! `6`
