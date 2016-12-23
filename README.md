@@ -15,12 +15,9 @@ You will need [Leiningen][] 2.0.0 or above installed.
 To start a web server for the application, run:
 
     lein ring server
-And then:
+And then using https://httpie.org/ :
+`http localhost:3000 input="(range 1 10)" commands:='["(partial reduce +)", "(partial inc)"]' -v`
 
-1.  POST to `/` a JSON with the field code and a string of what will run:
-``` JSON
-{
-  "code":"(reduce * [3 2 1])"
-}
-```
-2. Check result! `6`
+## What's happening?
+
+Where read and evaling the strings received and applying functions to it, technically making a stupid simple
