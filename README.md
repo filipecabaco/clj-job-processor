@@ -24,6 +24,12 @@ And it will return `285` as expected
 
 Where read and evaluating the strings received and applying functions to it, technically making a stupid job processor web api that would receive by order the functions to be performed on the input and return the result.
 
+## Next Steps
+
+Maybe core-async? A way to control execution time so we can impose limits? Who knows!
+
+## Warning
 As you might expect this is **FULL** of security problems and it's just a stupid hack to understand how clojure evaluates strings.
 
-In the future I might improve
+In the future I might improve this aspect... for now I just want to have fun!
+![](https://media.giphy.com/media/DYH297XiCS2Ck/giphy.gif)
