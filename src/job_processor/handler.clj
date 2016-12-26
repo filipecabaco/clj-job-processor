@@ -14,16 +14,14 @@
   [& functions]
   (apply map read-eval functions))
 
-
 (defn handler [request]
   (let [body (get-in request [:body])
         input (:input body)
         commands (reverse (:commands body))
         input-evaled (read-eval input)
         commands-evaled (apply comp (read-evals commands))
-        result (->> input-evaled commands-evaled)]
+        result (commands-evaled input-evaled)]
       (response (pr-str result))))
-
 
 (def app
   (-> handler
